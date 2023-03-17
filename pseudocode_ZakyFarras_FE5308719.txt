@@ -1,0 +1,33 @@
+DECLARE "nama_makanan" with string
+INPUT nama_makanan
+DECLARE "quantity" with number
+INPUT quantity
+DECLARE "total" with 0
+
+FUNCTION calcTotal (makanan)
+  DECLARE totalPrice with 0
+
+  IF nama_makanan = "ayam"
+    SET total with 15000 times quantity
+  ELSE IF nama_makanan = "nasi"
+    SET totalPrice with 5000 times quantity
+  ELSE
+    PRINT "Makanan tidak tersedia"
+
+  RETURN totalPrice
+END FUNCTION
+
+SET total with calcTotal(nama_makanan)
+
+IF total more than 0
+  DECLARE "bayarDenganTunai" with boolean
+  INPUT bayarDenganTunai
+
+  IF "bayarDenganTunai" equal with true
+    PRINT "bayar dengan tunai"
+  ELSE
+    PRINT "bayar dengan saldo tersedia"
+
+  PRINT "Berhasil memesan makanan"
+ELSE
+  PRINT "Tidak bisa memsan makanan yang tidak ada dimenu"
